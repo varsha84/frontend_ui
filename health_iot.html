@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <title>Health IOT</title>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body no-padding">
+                        <div class="patient">
+                            <img alt="image" class="rounded-circle" src="img/old_person.jpg"/>
+
+                            <h6>Reccaba Larsen</h6> 
+                            <span><i class="fa fa-bed"></i> 3rd F., Room 4, Bed 7</span>
+                            
+                        </div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td> <span class="health-data">67</span> <br> year old</td>
+                                    <td><span class="health-data">Female</span> <br> Gender</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="health-data">176 cm</span> <br> Height</td>
+                                    <td><span class="health-data">63.4 kg</span> <br> Weight</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5" >
+                <div class="card">
+                    <div class="card-body no-padding">
+                        <div class="heart-rate">
+                            <h6>Heart Rate <i class="fa fa-heartbeat fa-2x  float-right" style="color:#1ab394"></i></h6>
+                            <h5>84 bpm</h5>
+                        </div>
+                        <div id="heart-rate-chart">
+                            <canvas style="width:100%; height:150px;"></canvas>
+                        </div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td> <span class="health-data">165</span> <br> Average</td>
+                                    <td><span class="health-data">188</span> <br> Highest</td>
+                                    <td><span class="health-data">83</span> <br> Lowest</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Blood Pressure <i class="fa fa-heart fa-2x float-right" style="color:red"></i></h6>
+                        <h5>130/80 mmHG</h5>
+                        <img src="img/heart_rate.jpg" alt="" class="center">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card">
+                    <ul class="list-group">
+                        <li class="list-group-item bold">Allergies</li>
+                        <li class="list-group-item">Nuts</li>
+                        <li class="list-group-item">Pencilin</li>
+                        <li class="list-group-item">Sulfa</li>
+                        <li class="list-group-item">Vestibulum</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-body no-padding">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td> <h6>Temperature</h6> <h4>36.8 C</h4><span class="line-chart">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span>
+                                    </div></td>
+                                    <td> <h6>Oxygen Level</h6> <h4>93%</h4> <span class="line-chart">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2</span></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>                   
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Blood Levels</h6>
+                        <div id="blood-level-chart">
+                            <canvas style="width:100%; height:250px;"></canvas>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+    <script src="js/chartjs/chartjs.bundle.js"></script>
+    <script src="js/peity/peity.bundle.js"></script>
+    <script src="js/myscript.js"></script>
+    
+    <script>
+        $(document).ready(function()
+        {
+            
+            $(".line-chart").peity("line", {width: '100%', height: '70', fill:false, strokeWidth: '3'})
+            $(".bar-chart").peity("bar", {width: '100%', height: '200', fill:false, padding: '2'})
+            barStacked();
+            lineChart();
+
+        });
+    </script>
+</body>
+</html>
